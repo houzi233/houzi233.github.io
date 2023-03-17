@@ -55,7 +55,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -242,7 +246,7 @@
 <p>补充一些missing_value的处理方法，灵感来自<a target="_blank" rel="noopener" href="https://www.kaggle.com/code/kishan9044/story-of-titanic/notebook">Story of 🛳️ Titanic :) | Kaggle</a>(强烈安利这个，真的是入门最全的东西，最基础的Titanic都有很多东西可以总结)</p>
 <p>核心观点就是Always make sure that the distribution of the data is same or close to similar before and after the imputation.</p>
 <p>以Titanic的Age为例，第一种方法也是最常用的，就是把缺失值转换成均值或者中位数，但这显然会改变原始分布，毕竟某一个值会太突出</p>
-<p>第二种方法，获得Age的均值与方差，然后用np.random.randint(low_range_train,high_range_train,size_train)生成数据(low_range_high=mean-std,high_range_train=mean+std)，但是这种方法仍然会改变原始分布</p>
+<p>第二种方法，获得Age的均值与方差，然后用np.random.randint(low_range_train,high_range_train,size_train)生成数据(low_range_high&#x3D;mean-std,high_range_train&#x3D;mean+std)，但是这种方法仍然会改变原始分布</p>
 <p>第三种方法，也是最常用的，直接在原始数据里随机抽样，效果是最好的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train[<span class="string">&quot;Age_imputed&quot;</span>][train[<span class="string">&quot;Age_imputed&quot;</span>].isna()] = random.sample(<span class="built_in">list</span>(train[<span class="string">&quot;Age&quot;</span>][~(train[<span class="string">&quot;Age&quot;</span>].isna())].values), <span class="built_in">len</span>(train[<span class="string">&quot;Age&quot;</span>][train[<span class="string">&quot;Age&quot;</span>].isna()]))</span><br></pre></td></tr></table></figure>
 
