@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="sql学习从这里开始，为了稳定起见，把pgadmin先打开吧">
+    <meta name="description" content="sql学习从这里开始，一定要把pgadmin先打开。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql">
 <meta property="og:url" content="http://example.com/2023/03/15/sql/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="sql学习从这里开始，为了稳定起见，把pgadmin先打开吧">
+<meta property="og:description" content="sql学习从这里开始，一定要把pgadmin先打开。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-15T08:57:15.000Z">
-<meta property="article:modified_time" content="2023-03-17T03:01:51.820Z">
+<meta property="article:modified_time" content="2023-03-17T13:39:03.938Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
@@ -94,7 +94,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -107,6 +107,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E5%8F%8A%E7%BB%93%E6%9D%9FSQL"><span class="nav-number">1.</span> <span class="nav-text">连接及结束SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E6%95%B0%E6%8D%AE%E5%BA%93-c-database"><span class="nav-number">1.0.1.</span> <span class="nav-text">切换数据库    \c database</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7-c-username"><span class="nav-number">1.0.2.</span> <span class="nav-text">切换用户    \c username</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CSQL"><span class="nav-number">2.</span> <span class="nav-text">第一章 数据库和SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">1-1 什么是数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%97%8F-%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88Database%EF%BC%8CDB%EF%BC%89%E6%98%AF%E5%B0%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%BF%9D%E5%AD%98%E8%B5%B7%E6%9D%A5%EF%BC%8C%E9%80%9A%E8%BF%87%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8A%A0%E5%B7%A5%E8%80%8C%E6%88%90%E7%9A%84%E5%8F%AF%E4%BB%A5%E8%BF%9B%E8%A1%8C%E9%AB%98%E6%95%88%E8%AE%BF%E9%97%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%E5%90%88%E3%80%82"><span class="nav-number">2.1.1.</span> <span class="nav-text">● 数据库（Database，DB）是将大量数据保存起来，通过计算机加工而成的可以进行高效访问的数据集合。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%97%8F-%E7%94%A8%E6%9D%A5%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%A7%B0%E4%B8%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88Database-Management-System-DBMS%EF%BC%89%E3%80%82"><span class="nav-number">2.1.2.</span> <span class="nav-text">● 用来管理数据库的计算机系统称为数据库管理系统（Database Management System, DBMS）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%97%8F-%E9%80%9A%E8%BF%87%E4%BD%BF%E7%94%A8DBMS%EF%BC%8C%E5%A4%9A%E4%B8%AA%E7%94%A8%E6%88%B7%E4%BE%BF%E5%8F%AF%E5%AE%89%E5%85%A8%E3%80%81%E7%AE%80%E5%8D%95%E5%9C%B0%E6%93%8D%E4%BD%9C%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E3%80%82"><span class="nav-number">2.1.3.</span> <span class="nav-text">● 通过使用DBMS，多个用户便可安全、简单地操作大量数据。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%97%8F-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%89%E5%BE%88%E5%A4%9A%E7%A7%8D%E7%B1%BB%EF%BC%8C%E6%9C%AC%E4%B9%A6%E5%B0%86%E4%BB%8B%E7%BB%8D%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%B8%93%E9%97%A8%E7%9A%84-SQL%E8%AF%AD%E8%A8%80%E6%9D%A5%E6%93%8D%E4%BD%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%82"><span class="nav-number">2.1.4.</span> <span class="nav-text">● 数据库有很多种类，本书将介绍如何使用专门的 SQL语言来操作关系数据库。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%97%8F-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E9%80%9A%E8%BF%87%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88RDBMS%EF%BC%89%E8%BF%9B%E8%A1%8C%E7%AE%A1%E7%90%86%E3%80%82"><span class="nav-number">2.1.5.</span> <span class="nav-text">● 关系数据库通过关系数据库管理系统（RDBMS）进行管理。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">1-2 数据库的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-SQL%E6%A6%82%E8%A6%81"><span class="nav-number">2.3.</span> <span class="nav-text">1-3 SQL概要</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL%E8%AF%AD%E5%8F%A5%E5%8F%8A%E5%85%B6%E7%A7%8D%E7%B1%BB%EF%BC%88%E6%A0%B8%E5%BF%83%E6%98%AFDML%EF%BC%89"><span class="nav-number">2.3.1.</span> <span class="nav-text">SQL语句及其种类（核心是DML）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL%E5%9F%BA%E6%9C%AC%E4%B9%A6%E5%86%99%E8%A7%84%E5%88%99"><span class="nav-number">2.3.2.</span> <span class="nav-text">SQL基本书写规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">2.4.</span> <span class="nav-text">1-4 表的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93-create-database-name"><span class="nav-number">2.4.1.</span> <span class="nav-text">创建数据库 create database name</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8-create-table-name"><span class="nav-number">2.4.2.</span> <span class="nav-text">创建表 create table name</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BE%E4%BE%8B"><span class="nav-number">2.4.3.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">2.4.4.</span> <span class="nav-text">命名规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.4.5.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%A6%E6%9D%9F%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.4.6.</span> <span class="nav-text">约束设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E8%A1%A8%E7%9A%84%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4"><span class="nav-number">2.5.</span> <span class="nav-text">1-5 表的更新和删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4-drop-table-name"><span class="nav-number">2.5.1.</span> <span class="nav-text">表的删除 drop table name</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E7%9A%84%E6%9B%B4%E6%96%B0-alter-table-name-add-column-column1"><span class="nav-number">2.5.2.</span> <span class="nav-text">表的更新 alter table name add column column1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alter-table-name-drop-column-column1"><span class="nav-number">2.5.3.</span> <span class="nav-text">alter table name drop column column1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE-insert-into-name-values-%E2%80%98%E2%80%99-%E2%80%98%E2%80%99-%E2%80%98%E2%80%99"><span class="nav-number">2.5.4.</span> <span class="nav-text">插入数据 insert into name values(‘’, ‘’, ‘’,)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%9F%A5%E8%AF%A2%E5%9F%BA%E7%A1%80"><span class="nav-number">3.</span> <span class="nav-text">第二章 查询基础</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -191,7 +192,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-17 11:01:51" itemprop="dateModified" datetime="2023-03-17T11:01:51+08:00">2023-03-17</time>
+      <time title="Modified: 2023-03-17 21:39:03" itemprop="dateModified" datetime="2023-03-17T21:39:03+08:00">2023-03-17</time>
     </span>
 
   
@@ -204,8 +205,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>sql学习从这里开始，为了稳定起见，把pgadmin先打开吧</p>
-
+        <p>sql学习从这里开始，一定要把pgadmin先打开。</p>
+<span id="more"></span>
+<h2 id="连接及结束SQL"><a href="#连接及结束SQL" class="headerlink" title="连接及结束SQL"></a>连接及结束SQL</h2><p>搜索sql or psql会出现一个SQL Shell，然后点进去按几下回车，出现口令之后输入密码（不显示），然后等出现progress=#就算连接成功了。输入“\q”按回车即可退出。</p>
+<h4 id="切换数据库-c-database"><a href="#切换数据库-c-database" class="headerlink" title="切换数据库    \c database"></a>切换数据库    \c database</h4><h4 id="切换用户-c-username"><a href="#切换用户-c-username" class="headerlink" title="切换用户    \c username"></a>切换用户    \c username</h4><h2 id="第一章-数据库和SQL"><a href="#第一章-数据库和SQL" class="headerlink" title="第一章 数据库和SQL"></a>第一章 数据库和SQL</h2><h3 id="1-1-什么是数据库"><a href="#1-1-什么是数据库" class="headerlink" title="1-1 什么是数据库"></a>1-1 什么是数据库</h3><h4 id="●-数据库（Database，DB）是将大量数据保存起来，通过计算机加工而成的可以进行高效访问的数据集合。"><a href="#●-数据库（Database，DB）是将大量数据保存起来，通过计算机加工而成的可以进行高效访问的数据集合。" class="headerlink" title="● 数据库（Database，DB）是将大量数据保存起来，通过计算机加工而成的可以进行高效访问的数据集合。"></a>● 数据库（Database，DB）是将大量数据保存起来，通过计算机加工而成的可以进行高效访问的数据集合。</h4><h4 id="●-用来管理数据库的计算机系统称为数据库管理系统（Database-Management-System-DBMS）。"><a href="#●-用来管理数据库的计算机系统称为数据库管理系统（Database-Management-System-DBMS）。" class="headerlink" title="● 用来管理数据库的计算机系统称为数据库管理系统（Database Management System, DBMS）。"></a>● 用来管理数据库的计算机系统称为数据库管理系统（Database Management System, DBMS）。</h4><h4 id="●-通过使用DBMS，多个用户便可安全、简单地操作大量数据。"><a href="#●-通过使用DBMS，多个用户便可安全、简单地操作大量数据。" class="headerlink" title="● 通过使用DBMS，多个用户便可安全、简单地操作大量数据。"></a>● 通过使用DBMS，多个用户便可安全、简单地操作大量数据。</h4><h4 id="●-数据库有很多种类，本书将介绍如何使用专门的-SQL语言来操作关系数据库。"><a href="#●-数据库有很多种类，本书将介绍如何使用专门的-SQL语言来操作关系数据库。" class="headerlink" title="● 数据库有很多种类，本书将介绍如何使用专门的 SQL语言来操作关系数据库。"></a>● 数据库有很多种类，本书将介绍如何使用专门的 SQL语言来操作关系数据库。</h4><p>关系数据库（Relational Database,RDB）应用最广泛，由行和列组成的二维表来管理数据，使用专门的SQL（Structured Query Language，结构化查询语言）对数据进行操作。  RDB+DBMS就成了RDBMS。</p>
+<p>具有代表性的5种RDBMS：</p>
+<p>●    Oracle Database：甲骨文公司的RDBMS<br>●    SQL Server：微软公司的RDBMS<br>●    DB2：IBM公司的RDBMS<br>●    PostgreSQL： 开源的RDBMS<br>●    MySQL：开源的RDBMS  </p>
+<h4 id="●-关系数据库通过关系数据库管理系统（RDBMS）进行管理。"><a href="#●-关系数据库通过关系数据库管理系统（RDBMS）进行管理。" class="headerlink" title="● 关系数据库通过关系数据库管理系统（RDBMS）进行管理。"></a>● 关系数据库通过关系数据库管理系统（RDBMS）进行管理。</h4><h3 id="1-2-数据库的结构"><a href="#1-2-数据库的结构" class="headerlink" title="1-2 数据库的结构"></a>1-2 数据库的结构</h3><p>最常用的就是客户端/服务器类型（C/S）</p>
+<p>客户端通过SQL语句查询，服务器读取数据库程序，通过数据库服务器把数据传给客户端。</p>
+<p>数据以二维表的形式存在，表的列称为字段，行称为记录，关系数据库必须<strong>以行为单位进行数据读写</strong> 。</p>
+<p><strong>一个单元格只能输入一个数据</strong></p>
+<h3 id="1-3-SQL概要"><a href="#1-3-SQL概要" class="headerlink" title="1-3 SQL概要"></a>1-3 SQL概要</h3><p>国际标准化组织（ISO）为 SQL 制定了相应的标准，以此为基准的SQL 称为标准 SQL  。</p>
+<h4 id="SQL语句及其种类（核心是DML）"><a href="#SQL语句及其种类（核心是DML）" class="headerlink" title="SQL语句及其种类（核心是DML）"></a>SQL语句及其种类（核心是DML）</h4><p>● DDL<br>DDL（Data Definition Language，数据定义语言）用来创建或者删除存储<br>数据用的数据库以及数据库中的表等对象。 DDL 包含以下几种指令。<br>CREATE： 创建数据库和表等对象<br>DROP： 删除数据库和表等对象<br>ALTER： 修改数据库和表等对象的结构<br>● DML<br>DML（Data Manipulation Language，数据操纵语言）用来查询或者变更<br>表中的记录。 DML 包含以下几种指令。<br>SELECT：查询表中的数据<br>INSERT：向表中插入新数据<br>UPDATE：更新表中的数据<br>DELETE：删除表中的数据<br>● DCL<br>DCL（Data Control Language，数据控制语言）用来确认或者取消对数据<br>库中的数据进行的变更。除此之外，还可以对 RDBMS 的用户是否有权限<br>操作数据库中的对象（数据库表等）进行设定。 DCL 包含以下几种指令。<br>COMMIT： 确认对数据库中的数据进行的变更<br>ROLLBACK： 取消对数据库中的数据进行的变更<br>GRANT： 赋予用户操作权限<br>REVOKE： 取消用户的操作权限  </p>
+<h4 id="SQL基本书写规则"><a href="#SQL基本书写规则" class="headerlink" title="SQL基本书写规则"></a>SQL基本书写规则</h4><p><strong>SQL语句要以分号（ ;）结尾</strong></p>
+<p><strong>SQL不区分关键字的大小写</strong></p>
+<p>例如，不管写成 SELECT 还是select，<br>解释都是一样的。表名和列名也是如此。但是表中数据区分大小写<br>本书使用以下规则来书写 SQL 语句。<br>●    关键字大写<br>●    表名的首字母大写<br>●    其余（列名等）小写  </p>
+<p>在 SQL 语句中直接书写的字符串、日期或者数字等称为常数。常数<br>的书写方式如下所示。<br>SQL 语句中含有字符串的时候，需要像’abc’ 这样，使用单引号（’）<br>将字符串括起来，用来标识这是一个字符串。<br>SQL 语句中含有日期的时候，同样需要使用单引号将其括起来。日期<br>的格式有很多种（’26 Jan 2010’ 或者 ‘10/01/26’ 等），本书统<br>一使用 ‘2010-01-26’ 这种 ‘ 年 - 月 - 日 ‘ 的格式。<br>在 SQL 语句中书写数字的时候，不需要使用任何符号标识，直接写<br>成 1000 这样的数字即可。</p>
+<p><strong>单词需要用半角空格或者换行来分隔</strong></p>
+<h3 id="1-4-表的创建"><a href="#1-4-表的创建" class="headerlink" title="1-4 表的创建"></a>1-4 表的创建</h3><h4 id="创建数据库-create-database-name"><a href="#创建数据库-create-database-name" class="headerlink" title="创建数据库 create database name"></a>创建数据库 create database name</h4><h4 id="创建表-create-table-name"><a href="#创建表-create-table-name" class="headerlink" title="创建表 create table name"></a>创建表 create table name</h4><p>(&lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，<br>&lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，<br>&lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，<br>&lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，<br>.<br>.<br>.<br>&lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；  </p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>CREATE TABLE Product<br>(product_id CHAR(4) NOT NULL,<br>product_name VARCHAR(100) NOT NULL,<br>product_type VARCHAR(32) NOT NULL,<br>PRIMARY KEY (product_id));</p>
+<p><strong>创建表的时候最后一项不用加逗号，会报错</strong></p>
+<h4 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h4><p>我们只能使用半角英文字母、数字、下划线（_）作为数据库、表和列的名称  </p>
+<p>名称必须以半角英文字母开头 </p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>所有的列都要指定数据类型，包括数字型、字符型和日期型。</p>
+<p>integer 用来指定存储整数的列的数据类型（数字型），不能存储小数  </p>
+<p>char 是用来指定存储字符串的列的数据类型（字符型）。可以像 CHAR(10) 或者 CHAR(200) 这样，在括号中指定该列可以存储的字符串的长度（最大长度）。 字符串以定长字符串的形式存储在被指定为 CHAR 型的列中。所谓定长字符串，就是当列中存储的字符串长度达不到最大长度的时候，使用半角空格进行补足。例如，我们向 CHAR(8) 类型的列中输入’abc’的时候，会以 ‘abc ‘（abc 后面有 5 个半角空格）的形式保存起来。  </p>
+<p>varchar  但该类型的列是以可变长字符串的形式来保存字符串的。定<br>长字符串在字符数未达到最大长度时会用半角空格补足，但可变长字符串<br>不同，即使字符数未达到最大长度，也不会用半角空格补足。 </p>
+<h4 id="约束设置"><a href="#约束设置" class="headerlink" title="约束设置"></a>约束设置</h4><p>not null  不能输入空白</p>
+<p>primary key 主键约束,所谓键，就是在指<br>定特定数据时使用的列的组合。键种类多样， 主键（primary key）就是可<br>以特定一行数据的列 .也就是说，如果把某列指定为主键，<br>就可以通过该列取出特定的商品数据了。  </p>
+<h3 id="1-5-表的更新和删除"><a href="#1-5-表的更新和删除" class="headerlink" title="1-5 表的更新和删除"></a>1-5 表的更新和删除</h3><h4 id="表的删除-drop-table-name"><a href="#表的删除-drop-table-name" class="headerlink" title="表的删除 drop table name"></a>表的删除 drop table name</h4><h4 id="表的更新-alter-table-name-add-column-column1"><a href="#表的更新-alter-table-name-add-column-column1" class="headerlink" title="表的更新 alter table name add column column1"></a>表的更新 alter table name add column column1</h4><h4 id="alter-table-name-drop-column-column1"><a href="#alter-table-name-drop-column-column1" class="headerlink" title="alter table name drop column column1"></a>alter table name drop column column1</h4><p>alter table name rename to name1</p>
+<h4 id="插入数据-insert-into-name-values-‘’-‘’-‘’"><a href="#插入数据-insert-into-name-values-‘’-‘’-‘’" class="headerlink" title="插入数据 insert into name values(‘’, ‘’, ‘’,)"></a>插入数据 insert into name values(‘’, ‘’, ‘’,)</h4><p><strong>插入数据的时候不用写前面的begin transaction和commit，直接insert就好，而且貌似不用太在乎中间加空格（不确定）。然后会出现个insert01,貌似没啥影响</strong></p>
+<h2 id="第二章-查询基础"><a href="#第二章-查询基础" class="headerlink" title="第二章 查询基础"></a>第二章 查询基础</h2>
     </div>
 
     
